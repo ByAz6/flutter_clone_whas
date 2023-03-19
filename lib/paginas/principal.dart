@@ -23,6 +23,23 @@ class _PrincipalState extends State<Principal> {
       backgroundColor: chatBoxMe,
       body: getBody(),
       bottomNavigationBar: getFooter(),
+       floatingActionButton: Stack(
+        children: [
+          Positioned(
+            bottom: 0,
+            left: 20,
+            right: 0,
+            child: FloatingActionButton(
+              onPressed: () {
+                // Código que se ejecuta al presionar el botón flotante
+                print('Botón de agregar');
+              },
+              child: Icon(Icons.add),
+              backgroundColor: cajasChat,
+            ),
+          ),
+        ],
+      ),
     );
   }
 //yes
@@ -40,57 +57,54 @@ class _PrincipalState extends State<Principal> {
   }
 
   Widget getFooter() {
-    List iconosItems = [
-     
-      Icons.fastfood,
-      LineIcons.paypal,
-      Icons.food_bank_outlined,
-      Icons.account_box,
-    ];
-    List textoItems = [
-     
-      "Recipes",
-      "Plans",
-      "Groceries",
-      "Personal Account"
-    ];
+    List iconosItems = [           Icons.fastfood,      LineIcons.paypal,      Icons.food_bank_outlined,      Icons.account_box,    ];
+    List textoItems = [           "Recipes",      "Plans",      "Groceries",      "Personal Account"    ];
     return Container(
+      
       height: 90,
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, top: 5),
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20, top: 5),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(textoItems.length, (index) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      paginaIndex = index;
-                    });
-                  },
-                  child: Column(
-                    children: [
-                      Icon(
-                        iconosItems[index],
-                        color: paginaIndex == index
-                            ? primary
-                            : primario.withOpacity(0.5),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+             
+              Row(
+                
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(textoItems.length, (index) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          paginaIndex = index;
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Icon(
+                            iconosItems[index],
+                            color: paginaIndex == index
+                                ? primary
+                                : primario.withOpacity(0.5),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(textoItems[index],
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color: paginaIndex == index
+                                      ? primary
+                                      : primario.withOpacity(0.9))),
+                        ],
                       ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(textoItems[index],
-                          style: TextStyle(
-                              fontSize: 10,
-                              color: paginaIndex == index
-                                  ? primary
-                                  : primario.withOpacity(0.9))),
-                    ],
-                  ),
-                );
-              })),
+                    );
+                  })),
+              
+            ],
+          ),
         ),
       ),
     );

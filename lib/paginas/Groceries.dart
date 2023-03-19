@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clone_whas/temas/colores.dart';
 
 class Groceries extends StatelessWidget {
-  final categories = [    {'title': 'Comida rapida', 'image': 'https://images.pexels.com/photos/3023476/pexels-photo-3023476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},    {'title': 'Platillos tipicos', 'image': 'https://images.pexels.com/photos/4724380/pexels-photo-4724380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},    {'title': 'Taqiza', 'image': 'https://images.pexels.com/photos/4958641/pexels-photo-4958641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},  ];
+  final categories = [    {'title': 'Comida rapida', 'image': 'https://images.pexels.com/photos/3023476/pexels-photo-3023476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},    {'title': 'Platillos tipicos', 'image': 'https://images.pexels.com/photos/4724380/pexels-photo-4724380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},    {'title': 'Taquiza', 'image': 'https://images.pexels.com/photos/4958641/pexels-photo-4958641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},  ];
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,9 @@ class Groceries extends StatelessWidget {
               'Categorías',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16.0),
+            SizedBox(height: 5.0),
             Container(
-              height: categories.length * 200.0,
+              height: categories.length * 105.0,
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 itemCount: categories.length,
@@ -55,8 +55,8 @@ class CategoryCard extends StatelessWidget {
         // TODO: Navegar a la pantalla de la categoría seleccionada
       },
       child: Container(
-        height: 200.0,
-        margin: EdgeInsets.only(bottom: 16.0),
+        height:100.0,
+        margin: EdgeInsets.only(bottom: 6.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
           image: DecorationImage(
