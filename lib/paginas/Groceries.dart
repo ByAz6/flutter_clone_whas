@@ -7,10 +7,10 @@ class Groceries extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: bgColor,
+      backgroundColor: bgColor,
       appBar: AppBar(
         title: Text('Comestibles'),
-          backgroundColor: bgColor,
+        backgroundColor: bgColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -23,9 +23,9 @@ class Groceries extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
             Container(
-              height: 150.0,
+              height: categories.length * 200.0,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.vertical,
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
                   return CategoryCard(
@@ -46,7 +46,7 @@ class CategoryCard extends StatelessWidget {
   final String title;
   final String image;
 
- CategoryCard({required this.title, required this.image});
+  CategoryCard({required this.title, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +55,8 @@ class CategoryCard extends StatelessWidget {
         // TODO: Navegar a la pantalla de la categoría seleccionada
       },
       child: Container(
-        width: 120.0,
-        margin: EdgeInsets.only(right: 16.0),
+        height: 200.0,
+        margin: EdgeInsets.only(bottom: 16.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
           image: DecorationImage(
